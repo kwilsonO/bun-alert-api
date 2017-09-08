@@ -6,6 +6,8 @@ public class Bun {
 
     private BunType bunType;
 
+    private Address address;
+
     private double shopLatitude;
 
     private double shopLongitude;
@@ -15,6 +17,10 @@ public class Bun {
         this.bunType = bunType;
         this.shopLatitude = shopLatitude;
         this.shopLongitude = shopLongitude;
+    }
+
+    public Address getAddress() {
+        return address;
     }
 
     public double getBunLatitude() {
