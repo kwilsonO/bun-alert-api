@@ -6,29 +6,49 @@ public class Bun {
 
     private BunType bunType;
 
-    private Address address;
+    //private Address address;
 
-    private double shopLatitude;
+    private double bunLatitude;
 
-    private double shopLongitude;
+    private double bunLongitude;
 
-    public Bun(String bunName, BunType bunType, double shopLatitude, double shopLongitude){
-        this.bunName = bunName;
-        this.bunType = bunType;
-        this.shopLatitude = shopLatitude;
-        this.shopLongitude = shopLongitude;
+    public Bun(){
+
     }
 
-    public Address getAddress() {
+    public Bun(String bunName, BunType bunType, double bunLatitude, double bunLongitude){
+        this.bunName = bunName;
+        this.bunType = bunType;
+        this.bunLatitude = bunLatitude;
+        this.bunLongitude = bunLongitude;
+    }
+
+    /*public Address getAddress() {
         return address;
+    }*/
+
+    public void setBunLatitude(double bunLatitude){
+        this.bunLatitude = bunLatitude;
+    }
+
+    public void setBunLongitude(double bunLongitude){
+        this.bunLongitude = bunLongitude;
+    }
+
+    public void setBunName(String bunName){
+        this.bunName = bunName;
+    }
+
+    public void setBunType(BunType bunType){
+        this.bunType = bunType;
     }
 
     public double getBunLatitude() {
-        return shopLatitude;
+        return bunLatitude;
     }
 
     public double getBunLongitude() {
-        return shopLongitude;
+        return bunLongitude;
     }
 
     public BunType getBunType() {

@@ -2,15 +2,22 @@ package bun.controller;
 
 import bun.data.Store;
 import bun.model.Bun;
+import com.google.maps.GeoApiContext;
 import com.google.maps.model.LatLng;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
 public class BunController {
+
+    @Autowired
+    private GeoApiContext geoApiContext;
 
     /**
      * the data store
@@ -25,11 +32,15 @@ public class BunController {
     }
 
     @RequestMapping(value = "/bun", method = RequestMethod.POST)
-    public ResponseEntity addBunByAddress(@RequestBody Bun bun){
+    public ResponseEntity<String> addBunByAddress(@RequestBody Bun bun){
 
         store.add(bun);
 
-        return null;
+        return new ResponseEntity<String>(HttpStatus.OK);
+    }
 
+    @RequestMapping(value = "/bun", method = RequestMethod.GET)
+    public List<Bun> getAllBuns(){
+        return store.getAll();
     }
 }
